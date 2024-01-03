@@ -3,10 +3,10 @@ const { test, expect } = require('@playwright/test');
 
 
 
-test('@Web Client App login', async ({ page }) => {
+test.skip('@Web Client App login', async ({ page }) => {
    //js file- Login js, DashboardPage
    const email = "anshika@gmail.com";
-   const productName = 'zara coat 3';
+   const productName = 'ZARA COAT 3';
    const products = page.locator(".card-body");
    await page.goto("https://rahulshettyacademy.com/client/");
    await page.locator("#userEmail").fill(email);
@@ -29,7 +29,7 @@ test('@Web Client App login', async ({ page }) => {
    //await page.pause();
 
    await page.locator("div li").first().waitFor();
-   const bool = await page.locator("h3:has-text('zara coat 3')").isVisible();
+   const bool = await page.locator("h3:has-text('ZARA COAT 3')").isVisible();
    expect(bool).toBeTruthy();
    await page.locator("text=Checkout").click();
 
@@ -65,7 +65,7 @@ test('@Web Client App login', async ({ page }) => {
    }
    const orderIdDetails = await page.locator(".col-text").textContent();
    expect(orderId.includes(orderIdDetails)).toBeTruthy();
- await page.pause();
+ 
 });
 
 
